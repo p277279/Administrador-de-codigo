@@ -1,0 +1,14 @@
+{% extends "Index.html" %}
+
+{% block titulo %}Nuevos Datos{% endblock %}
+
+{% block principal %}
+	<h1>Ingresando nuevos datos</h1>
+	<form action = "." method= "POST">{% csrf_token %}
+		<table>
+			{{ form.as_table }}
+		</table>
+		<p> <input type= "submit" value= "Guardar"></p>
+	</form>
+{% endblock %}
+

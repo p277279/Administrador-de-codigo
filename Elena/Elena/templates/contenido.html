@@ -1,0 +1,11 @@
+{% extends "Index.html" %}
+
+{% block titulo %}Mostrando Datos{% endblock %}
+
+{% block principal %}
+	<h1>Mostrando Codigo del dato numero: {{ dato.id }}, {{ dato.Nombre }} </h1>
+	{% if dato %}
+		<textarea rows="0" cols="100" name="l" style="overflow:auto; font-family:TimesNewRoman; color:blue; background-color:gray" readonly="readonly">{{ dato.Codigo|escape }}</textarea>
+	{% endif %}	
+{% endblock %}
+

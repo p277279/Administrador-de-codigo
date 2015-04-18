@@ -1,0 +1,18 @@
+{% extends "Index.html" %}
+
+{% block titulo %}Lista{% endblock %}
+
+{% block principal %}
+		{% if Datos_list %}
+		<ul>
+			<table border cellspacing = 3>
+			<tr bgcolor = "gray"><td>ID</td><td>Nombre</td><td>Autor</td><td>Lenguaje</td><td>Descripcion</td><td>Fecha</td></tr>
+			{% for dato in Datos_list %}
+			<tr><td><a href="{% url 'qu' dato.id %}">{{ dato.id|escape }}</td><td>{{ dato.Nombre|escape}}</td><td>{{ dato.Autor|escape}}</td><td>{{ dato.Lenguaje|escape}}</td><td>{{ dato.Descripcion|escape}}</td><td>{{ dato.Fecha|escape}}</td></tr>
+			{% endfor %}
+			</table>
+		</ul>
+		{% else %}
+			<p>No datas are avialable.</p>
+		{% endif %}	
+{% endblock %}

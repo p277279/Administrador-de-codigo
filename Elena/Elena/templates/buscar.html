@@ -1,0 +1,31 @@
+{% extends "Index.html" %}
+
+{% block titulo %}Buscar Datos{% endblock %}
+
+{% block principal %}
+	<h1>Buscar datos</h1>
+	<form>
+		<label for = "q">Buscar: </label>
+		<input type="text" name="q" value="{{ query|escape }}">
+		<input type="submit" value="Ir">
+	</form>
+	{% if query %}
+		<h2>Resultados para "{{ query|escape }} ":</h2>
+		{% if results %}
+			<ul>
+				<table>
+				{% for dato in results %}
+					<tr><th>
+					 	<td>
+							<textarea name="l" style="overflow: auto" with = 800px>{{ dato|escape }}</textarea>					
+						</td>
+					    </th>
+					</tr>					
+				{% endfor %}
+				<table>
+			</ul>
+		{% else %}
+			<p> No hay datos </p>
+		{% endif %}
+	{% endif %}
+{% endblock %}
